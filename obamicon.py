@@ -1,16 +1,24 @@
 from PIL import Image
 
 # RGB values for recoloring.
-darkBlue = (0, 51, 76)
-red = (217, 26, 33)
-lightBlue = (112, 150, 158)
-yellow = (252, 227, 166)
+# darkBlue = (0, 51, 76)
+# red = (217, 26, 33)
+# lightBlue = (112, 150, 158)
+# yellow = (252, 227, 166)
+
+darkViolet = (60, 47, 99)
+lightViolet = (90, 72, 110)
+palePink = (255, 210, 210)
+pink = (232, 140, 140)
+darkRed = (187, 70, 70)
+greenBlue = (55, 86, 82)
+brown = (139, 59, 5)
 
 # Import image.
-my_image = Image.open("mona_lisa.jpg") #change IMAGENAME to the path on your computer to the image you're using
+my_image = Image.open("portugal.jpg") #change IMAGENAME to the path on your computer to the image you're using
 image_list = my_image.getdata() #each pixel is represented in the form (red value, green value, blue value, transparency). You don't need the fourth value.
 image_list = list(image_list) #Turns the sequence above into a list. The list can be iterated through in a loop.
-print(image_list)
+# print(image_list)
 
 recolored = [] #list that will hold the pixel data for the new image.
 #
@@ -19,13 +27,14 @@ def colorization():
      for item in image_list:
          color = (item[0] + item [1] + item[2])
          if color < 182:
-             recolored.append(darkBlue)
+             recolored.append(pink)
          elif color >= 182 and color < 364:
-             recolored.append(red)
+             recolored.append(lightViolet)
          elif color >= 364 and color < 546:
-             recolored.append(lightBlue)
-         elif color > 546:
-             recolored.append(yellow)
+             recolored.append(palePink)
+         elif color >= 546:
+             recolored.append(darkRed)
+
 
 colorization()
 # # Create a new image using the recolored list. Display and save the image.
