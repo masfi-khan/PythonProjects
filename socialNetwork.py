@@ -27,9 +27,13 @@ class User:
     def get_connections(self):
         return self.connections
 
-
 class Network:
     # Define the fields and methods for your object here.
+    def _init_(self, friends):
+        groupchat = []
+
+#select friends from friends list, add to groupchat, user input from self and friendsz
+    def groupchat_friends:
 
 
 def main():
